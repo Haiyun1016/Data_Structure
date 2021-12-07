@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #define M 8
 #define N 8
-#define MaxSize 15
+#define MaxSize 100
 
 typedef struct
 {
