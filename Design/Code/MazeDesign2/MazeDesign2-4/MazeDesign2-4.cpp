@@ -2,23 +2,22 @@
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define M 10
-#define N 10
 
-int mg[M + 2][N + 2] = {        //M=10，N=10     
+#define M 8
+#define N 8
 
-	{N,0,1,2,3,4,5,6,7,8,9,N},
-	{0,1,0,1,1,1,1,1,1,1,1,0},
-	{1,1,0,0,1,0,0,0,1,0,1,1},
-	{2,1,0,0,1,0,0,0,1,0,1,2},
-	{3,1,0,0,0,0,1,1,0,0,1,3},
-	{4,1,0,1,1,1,0,0,0,0,1,4},
-	{5,1,0,0,0,1,0,0,0,0,1,5},
-	{6,1,0,1,0,0,0,1,0,0,1,6},
-	{7,1,0,1,1,1,0,1,1,0,1,7},
-	{8,1,1,0,0,0,0,0,0,0,0,8},
-	{9,1,1,1,1,1,1,1,1,1,1,9},
-	{N,0,1,2,3,4,5,6,7,8,9,N}
+int mg[M + 2][N + 2] = {        //M=8，N=8     
+
+	{1,N,1,1,1,1,1,1,1,1},
+	{1,0,0,1,0,0,0,1,0,1},
+	{1,0,0,1,0,0,0,1,0,1},
+	{1,0,0,0,0,1,1,0,0,1},
+	{1,0,1,1,1,0,0,0,0,1},
+	{1,0,0,0,1,0,0,0,0,1},
+	{1,0,1,0,0,0,1,0,0,1},
+	{1,0,1,1,1,0,1,1,0,1},
+	{1,1,0,0,0,0,0,0,0,0},
+	{1,1,1,1,1,1,1,1,1,1}
 };
 
 
@@ -30,13 +29,9 @@ int main()
 	int right_bottom_x = 60;         //矩形右部 x 坐标
 	int right_bottom_y = 60;         //矩形底部 y 坐标
 
-	int i = 1, j = 1;
+	int i = 0, j = 0;
 
-	//setfillcolor(RED);
-	//fillrectangle(left_top_x, left_top_y, right_bottom_x, right_bottom_y);
-
-
-	while (right_bottom_x <= 420 && j <= 10)
+	while (right_bottom_x <= 420 && j <= 9)
 	{
 		if (mg[i][j] == 1)
 		{
@@ -45,7 +40,7 @@ int main()
 		}
 		else
 			rectangle(left_top_x, left_top_y, right_bottom_x, right_bottom_y);
-		while (right_bottom_y <= 380 && i <= 10)
+		while (right_bottom_y <= 380 && i <= 9)
 		{
 			left_top_y = left_top_y + 40;
 			right_bottom_y = right_bottom_y + 40;
@@ -63,7 +58,7 @@ int main()
 		right_bottom_x = right_bottom_x + 40;
 		left_top_y = 20;
 		right_bottom_y = 60;
-		i = 1;
+		i = 0;
 		j++;
 
 	}

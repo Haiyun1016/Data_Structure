@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include<time.h>
 #define M 10
 #define N 10
 
@@ -31,8 +32,34 @@ int main()
 	int right_bottom_y = 60;         //矩形底部 y 坐标
 
 	int i = 1, j = 1;
+	srand(time(0));	                 //初始化种子
 
-	//把障碍物随机化，待改
+	int RandomMaze[8][8];            //随机迷宫数组,从mg[2][2]开始
+
+	for (int i1 = 0; i1 < 8; i1++)   //对随机迷宫数组进行赋值
+	{
+		for (int j1 = 0; j1 < 8; j1++)
+		{
+			RandomMaze[i1][j1] = rand() % 2;
+		}
+	}
+
+	RandomMaze[0][0] = 0;    //出口和入口添加几个固定通道
+	RandomMaze[1][0] = 0;    //防止随机很久也没有可行路径
+	RandomMaze[2][0] = 0;
+	RandomMaze[3][0] = 0;
+	RandomMaze[7][4] = 0;
+	RandomMaze[7][5] = 0;
+	RandomMaze[7][6] = 0;
+	RandomMaze[7][7] = 0;
+
+	for (int i2 = 0; i2 < 8; i2++)   //把随机迷宫的值传给数组mg[][]
+	{
+		for (int j2 = 0; j2 < 8; j2++)
+		{
+			mg[i2+2][j2+2] = RandomMaze[i2][j2];    //从mg[2][2]开始
+		}
+	}
 
 
 	while (right_bottom_x <= 420 && j <= 10)
